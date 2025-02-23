@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "title": "Blog with Gatsby",
+  "description": "Fully customizable blog template with a React.js front-end.",
+  "previewMedia": {
+    "type": "image",
+    "src": "assets/frontend.jpg",
+    "alt": "A screenshot of the Blog with Gatsby website."
+  },
+  "technologies": [
+    {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "url": "https://www.gatsbyjs.org/"
+    },
+    {
+      "id": "netlify",
+      "name": "Netlify",
+      "url": "https://www.netlify.com/"
+    }
+  ],
+  "deployment": {
+    "provider": "netlify",
+    "sites": [
+      {
+        "id": "studio",
+        "type": "studio",
+        "title": "Sanity Studio",
+        "description": "The Sanity Studio is where you edit and structure your content.",
+        "previewMedia": {
+          "type": "image",
+          "src": "assets/studio.jpg",
+          "alt": "A preview image of the Sanity Studio."
+        },
+        "buildSettings": {
+          "base": "/",
+          "dir": "/studio/dist",
+          "cmd": "npm run build-studio && cp studio/netlify.toml studio/dist"
+        },
+        "dir": "./studio",
+        "requirements": [
+          "build-hook"
+        ]
+      },
+      {
+        "id": "web",
+        "type": "web",
+        "title": "Blog Website",
+        "description": "A blazing fast blog, made for being easy to customize and update.",
+        "previewMedia": {
+          "type": "image",
+          "src": "assets/frontend.jpg",
+          "alt": "A preview image of the blog website."
+        },
+        "buildSettings": {
+          "base": "/",
+          "dir": "/web/public",
+          "cmd": "npm run build-web"
+        },
+        "dir": "./web",
+        "requiredCorsOrigins": [
+          {
+            "origin": "http://localhost:8000",
+            "allowCredentials": false
+          }
+        ],
+        "requiredTokens": [
+          {
+            "role": "deploy-studio",
+            "label": "GraphQL API Deployer"
+          }
+        ],
+        "requirements": [
+          "build-hook"
+        ]
+      }
+    ]
+  }
+}
