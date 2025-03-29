@@ -60,6 +60,7 @@ module.exports = {
         icon: `src/images/logo/logo.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-postcss'
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-root-import',
   ],
 }
