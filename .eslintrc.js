@@ -21,5 +21,6 @@ module.exports = {
     "react/prop-types": "off",
     "no-unused-vars": "warn",
     "jsx-a11y/anchor-is-valid": "warn",
+    "react/react-in-jsx-scope": "off"
   },
 }
