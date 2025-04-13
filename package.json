@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@sanity/block-content-to-react": "^3.0.0",
     "framer-motion": "^12.6.2",
     "gatsby": "^5.14.1",

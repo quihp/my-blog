@@ -13,6 +13,45 @@ export const cvData = {
     },
   ],
   languages: ["English - TOEIC 785"],
+  skills: {
+    programming_languages: ["JavaScript", "TypeScript", "Java", "PHP", "SQL"],
+    frontend_development: [
+      "HTML/CSS/jQuery",
+      "SASS/SCSS/TailwindCSS",
+      "ReactJS",
+      "Angular",
+      "Redux/Redux-Saga/Mobx/RxJS",
+      "MUI/AntDesign/Bootstrap",
+      "Webpack/Vite",
+    ],
+    backend_development: [
+      "Java Spring MVC",
+      "Java Spring Boot",
+      "RESTful APIs",
+      "MySQL/PostgreSQL",
+    ],
+    tools_methodologies: [
+      "Git",
+      "Jenkins",
+      "Postman",
+      "Trello/Jira",
+      "Agile/Scrum",
+      "UI/UX Design Principles",
+    ],
+    systems_networking: [
+      "Linux",
+      "Windows Server",
+      "SDN Networks",
+      "Web Services (Apache, Nginx, IIS)",
+    ],
+    others: [
+      "WordPress",
+      "Photoshop/Illustrator",
+      "Vegas/Capcut",
+      "Teamwork",
+      "Presentation",
+    ],
+  },
   experience: [
     {
       period: "11/2023 - present",

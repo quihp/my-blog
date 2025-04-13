@@ -22,7 +22,10 @@ const Header = ({ siteTitle }) => {
               "block relative font-medium " +
               "no-underline" +
               " text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-            if (pathName === link.path) {
+            if (
+              pathName === link.path ||
+              (link.path !== "/" && pathName.includes(link.path))
+            ) {
               linkClass +=
                 "  bg-[--foreground] p-2.5 rounded-3xl text-white transition duration-300 ease-in-out"
             } else {

@@ -17,7 +17,7 @@
 //   })
 // }
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   const result = await graphql(`
     query {
@@ -30,19 +30,23 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
   if (result.errors) {
-    throw result.errors;
+    throw result.errors
   }
 
-  const posts = result.data.allSanityPost.nodes;
-
+  const posts = result.data.allSanityPost.nodes
   posts.forEach(post => {
     createPage({
       path: `/blog/${post.slug.current}`,
       component: require.resolve("./src/templates/blog-post.js"),
       context: { id: post.id },
-    });
-  });
-};
+    })
+    createPage({
+      path: `/creative/${post.slug.current}`,
+      component: require.resolve("./src/templates/blog-post.js"),
+      context: { id: post.id },
+    })
+  })
+}

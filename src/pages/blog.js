@@ -41,25 +41,26 @@ const BlogPage = ({ data }) => {
           })}
         </div>
       </div>
-      {/* {posts.map(post => (
-        <article key={post.id} className="mb-6">
-          <h2 className="text-2xl">
-            <Link to={`/blog/${post.slug.current}`}>{post.title}</Link>
-          </h2>
-          <p className="text-gray-600">
-            {new Date(post.publishedAt).toDateString()}
-          </p>
-        </article>
-      ))} */}
     </Layout>
   )
 }
 export const query = graphql`
   query {
-    allSanityPost {
+    allSanityPost(
+      filter: { categories: { elemMatch: { title: { eq: "Blog" } } } }
+    ) {
       nodes {
         id
         title
+        body {
+          _key
+          _type
+          style
+          listItem
+          level
+          _rawChildren
+        }
+        _rawBody
         slug {
           current
         }

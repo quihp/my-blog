@@ -32,6 +32,26 @@ const projectItemVariants = {
     transition: { type: "spring", stiffness: 100, damping: 15 },
   },
 }
+// Stagger animation for Skills
+const skillsContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const skillItemVariants = {
+  hidden: { opacity: 0, scale: 0.5, rotate: -45 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: { type: "spring", stiffness: 120, damping: 10 },
+  },
+}
 const IndexPage = () => (
   <Layout>
     <div className={styles.textCenter}>
@@ -47,68 +67,123 @@ const IndexPage = () => (
         </motion.header>
 
         {/* Summary */}
-        <div className="mb-2">{cvData.summary}</div>
-        {/* <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+        <motion.div
+          whileHover={{
+            scale: 1.1,
+            color: "#fff",
+            background: "var(--color-primary)",
+          }}
+          className="my-2 project-card"
         >
-          <div>{cvData.summary}</div>
-        </motion.section> */}
+          {cvData.summary}
+        </motion.div>
+        <div className="flex">
+          {/* Education   */}
+          <div className="basis-2/3">
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              <h3 className="section-title">Education</h3>
+              {cvData.education.map((edu, index) => (
+                <motion.div
+                  whileHover={{
+                    scale: 1.1,
+                    color: "#fff",
+                    background: "var(--color-primary)",
+                  }}
+                  className="project-card"
+                  transition={{ duration: 0.3 }}
+                  key={index}
+                >
+                  <p>{edu.period}</p>
+                  <p>{edu.institution}</p>
+                  <p>{edu.degree}</p>
+                  <p>{edu.level}</p>
+                </motion.div>
+              ))}
+            </motion.section>
+          </div>
 
-        {/* Education & Languages  */}
-
+          {/* Languages */}
+          <div className="basis-1/3 ">
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="languages-section"
+            >
+              <h3 className="section-title">Languages</h3>
+              <ul className="languages-list justify-center">
+                {cvData.languages.map((lang, index) => (
+                  <motion.li
+                    key={index}
+                    whileHover={{
+                      scale: 1.1,
+                      color: "#fff",
+                      background: "var(--color-primary)",
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="project-card"
+                  >
+                    {lang}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.section>
+          </div>
+        </div>
+        {/* Skills */}
         <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          // className="skills-section"
+          variants={skillsContainerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <h3 className="section-title">Education</h3>
-          {cvData.education.map((edu, index) => (
-            <div key={index}>
-              <p>{edu.period}</p>
-              <p>{edu.institution}</p>
-              <p>{edu.degree}</p>
-              <p>{edu.level}</p>
-            </div>
-          ))}
-        </motion.section>
-        {/* Languages */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="cv-section languages-section"
-        >
-          <h3 className="section-title">Languages</h3>
-          <ul className="languages-list">
-            {cvData.languages.map((lang, index) => (
-              <motion.li
+          <h3 className="section-title">Skills</h3>
+          <div className="skills-grid">
+            {Object.entries(cvData.skills).map(([category, skills], index) => (
+              <motion.div
                 key={index}
-                whileHover={{ scale: 1.1, color: "#ff6347" }}
-                transition={{ duration: 0.3 }}
-                className="language-item"
+                className="project-card"
+                variants={skillItemVariants}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 3,
+                  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+                }}
               >
-                {lang}
-              </motion.li>
+                <h4>
+                  {category
+                    .replace("_", " ")
+                    .split(" ")
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </h4>
+                <ul>
+                  {skills.map((skill, i) => (
+                    <li key={i}>{skill}</li>
+                  ))}
+                </ul>
+              </motion.div>
             ))}
-          </ul>
+          </div>
         </motion.section>
-
         {/* Experience */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="cv-section experience-section"
+          className="experience-section"
         >
           <h3 className="section-title">Experience</h3>
           {cvData.experience.map((exp, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.02, backgroundColor: "#f0f8ff" }}
+              whileHover={{ scale: 1.1, backgroundColor: "#f0f8ff" }}
               transition={{ duration: 0.3 }}
-              className="experience-item"
+              className="project-card"
             >
               <p className="experience-period">{exp.period}</p>
               <p className="experience-company">{exp.company}</p>
