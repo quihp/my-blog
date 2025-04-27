@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "src/components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import CustomLink from "src/components/Link/link"
+import { motion } from "framer-motion"
 
 const BlogPage = ({ data }) => {
   if (!data || !data.allSanityPost) {
@@ -12,19 +13,24 @@ const BlogPage = ({ data }) => {
   const posts = data.allSanityPost.nodes
   return (
     <Layout>
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-6">Blog Posts</h1>
+      <div className="container mx-auto px-6">
+        {/* <h1 className="text-3xl font-bold mb-6">Blog Posts</h1> */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map(post => {
             const image = getImage(post.mainImage.asset.gatsbyImageData)
             return (
               <div key={post.id} className="bg-white p-4 shadow-md rounded-lg">
                 {image && (
-                  <GatsbyImage
-                    image={image}
-                    alt={post.title}
-                    className="rounded-md"
-                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <GatsbyImage
+                      image={image}
+                      alt={post.title}
+                      className="rounded-md"
+                    />
+                  </motion.div>
                 )}
                 <h2 className="text-xl font-semibold mt-4">
                   <CustomLink to={`/blog/${post.slug.current}`}>

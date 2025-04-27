@@ -234,9 +234,9 @@ const IndexPage = () => (
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
       />
-      <h1>
+      <div>
         Welcome to <b>QuiHP's world!</b>
-      </h1>
+      </div>
     </div>
   </Layout>
 )

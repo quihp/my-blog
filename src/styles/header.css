@@ -1,0 +1,52 @@
+.header-backgroud {
+  background-image: url(https://assets-global.website-files.com/5ee1bccec7a1f843875ce9ea/5ee2172902abae62df8e2c3b_BG%20Shape%2002.svg),
+    url(https://assets-global.website-files.com/5ee1bccec7a1f843875ce9ea/5ee2173453b6977a1c120d76_BG%20Shape%2001.svg);
+  background-position: 0 0, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+.navigation {
+  background-color: rgba(0, 0, 0, 0);
+  align-items: center;
+  padding: 20px 3%;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+}
+.navigation-container-full {
+  max-width: var(--header-width);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-centre {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--color-code-bg);
+}
+
+.bar-big {
+  width: 220px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  margin-top: 32px;
+}
+.bar-small {
+  width: 180px;
+  height: 5px;
+  background-image: linear-gradient(to right, rgba(251, 154, 193, 0), #fb9acf);
+  border-radius: 100px;
+}

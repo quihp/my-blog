@@ -5,6 +5,7 @@ import { menuLinks } from "../constants/links"
 import CustomLink from "./Link/link"
 import { COLORS } from "src/constants/colors"
 import { useLocation } from "@reach/router"
+import "../styles/header.css"
 
 const Header = ({ siteTitle }) => {
   const location = useLocation()
@@ -13,46 +14,51 @@ const Header = ({ siteTitle }) => {
   console.log(location)
   const [isOpen, setIsOpen] = React.useState(false)
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {menuLinks.map(link => {
-            let linkClass =
-              "block relative font-medium " +
-              "no-underline" +
-              " text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-            if (
-              pathName === link.path ||
-              (link.path !== "/" && pathName.includes(link.path))
-            ) {
-              linkClass +=
-                "  bg-[--foreground] p-2.5 rounded-3xl text-white transition duration-300 ease-in-out"
-            } else {
-              linkClass +=
-                " hover:text-[--foreground] before:absolute before:-bottom-1 before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:bg-[--foreground] before:transition-transform before:duration-600 before:origin-center hover:before:scale-x-100"
-            }
-            return (
-              <Link key={link.name} href={link.path} className={linkClass}>
-                {link.name}
-              </Link>
-            )
-          })}
-        </nav>
+    <header className="bg-[var(--color-primary)] min-h-[var(--header-height)] header-backgroud">
+      <div className="navigation">
+        <div className="navigation-container-full">
+          {/* Desktop Menu */}
+          <nav className="hidden  md:flex items-center space-x-6">
+            {menuLinks.map(link => {
+              let linkClass =
+                "block relative font-medium " +
+                "no-underline" +
+                "  hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+              if (
+                pathName === link.path ||
+                (link.path !== "/" && pathName.includes(link.path))
+              ) {
+                linkClass +=
+                  "  bg-[--background] p-2.5 rounded-3xl text-[--color-primary] transition duration-300 ease-in-out"
+              } else {
+                linkClass +=
+                  " text-[--hover-color-text] before:absolute before:-bottom-1 before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:bg-[--color-secondary] before:transition-transform before:duration-600 before:origin-center hover:before:scale-x-100"
+              }
+              return (
+                <Link key={link.name} href={link.path} className={linkClass}>
+                  {link.name}
+                </Link>
+              )
+            })}
+          </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? "✖" : "☰"}
-        </button>
-        <StaticImage
-          alt="Qui's logo"
-          height={20}
-          style={{ margin: 0 }}
-          src="../images/logo/logo.png"
-        />
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? "✖" : "☰"}
+          </button>
+          <div className="bg-[var(--background)] px-2.5 rounded-3xl">
+            <StaticImage
+              alt="Qui's logo"
+              height={30}
+              width={30}
+              style={{ margin: 0, display: "block" }}
+              src="../images/logo/logo.png"
+            />
+          </div>
+        </div>
       </div>
       {/* Mobile Menu */}
       {isOpen && (
@@ -68,6 +74,12 @@ const Header = ({ siteTitle }) => {
           ))}
         </nav>
       )}
+      <div className="title-centre">
+        <h1 className="mb-0">{menuLinks.find(link => link.path === pathName)?.name}</h1>
+        <div className="bar-big">
+          <div className="bar-small"></div>
+        </div>
+      </div>
       {/* <Link
       to="/"
       style={{
