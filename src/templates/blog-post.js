@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 // import BlockContent from "@sanity/block-content-to-react"
 import Layout from "../components/layout"
 import { PortableText } from "@portabletext/react"
+import Seo from "../components/seo"
 
 const BlogPost = ({ data }) => {
   // data.sanityPost contains the detailed post info
@@ -54,5 +55,5 @@ export const query = graphql`
     }
   }
 `
-
+export const Head = () => <Seo title="Blog" />
 export default BlogPost

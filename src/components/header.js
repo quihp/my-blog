@@ -14,9 +14,18 @@ const Header = ({ siteTitle }) => {
   console.log(location)
   const [isOpen, setIsOpen] = React.useState(false)
   return (
-    <header className="bg-[var(--color-primary)] min-h-[var(--header-height)] header-backgroud">
+    <header>
       <div className="navigation">
         <div className="navigation-container-full">
+          <div className="bg-[var(--background)] px-2.5 rounded-3xl">
+            <StaticImage
+              alt="Qui's logo"
+              height={30}
+              width={30}
+              style={{ margin: 0, display: "block" }}
+              src="../images/logo/logo.png"
+            />
+          </div>
           {/* Desktop Menu */}
           <nav className="hidden  md:flex items-center space-x-6">
             {menuLinks.map(link => {
@@ -29,10 +38,10 @@ const Header = ({ siteTitle }) => {
                 (link.path !== "/" && pathName.includes(link.path))
               ) {
                 linkClass +=
-                  "  bg-[--background] p-2.5 rounded-3xl text-[--color-primary] transition duration-300 ease-in-out"
+                  "  bg-[--color-secondary] p-2.5 rounded-3xl text-[--hover-color-text] transition duration-300 ease-in-out"
               } else {
                 linkClass +=
-                  " text-[--hover-color-text] before:absolute before:-bottom-1 before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:bg-[--color-secondary] before:transition-transform before:duration-600 before:origin-center hover:before:scale-x-100"
+                  " text-[--color-primary] before:absolute before:-bottom-1 before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:bg-[--color-secondary] before:transition-transform before:duration-600 before:origin-center hover:before:scale-x-100"
               }
               return (
                 <Link key={link.name} href={link.path} className={linkClass}>
@@ -41,7 +50,6 @@ const Header = ({ siteTitle }) => {
               )
             })}
           </nav>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden focus:outline-none"
@@ -49,15 +57,6 @@ const Header = ({ siteTitle }) => {
           >
             {isOpen ? "✖" : "☰"}
           </button>
-          <div className="bg-[var(--background)] px-2.5 rounded-3xl">
-            <StaticImage
-              alt="Qui's logo"
-              height={30}
-              width={30}
-              style={{ margin: 0, display: "block" }}
-              src="../images/logo/logo.png"
-            />
-          </div>
         </div>
       </div>
       {/* Mobile Menu */}
@@ -74,21 +73,22 @@ const Header = ({ siteTitle }) => {
           ))}
         </nav>
       )}
-      <div className="title-centre">
-        <h1 className="mb-0">{menuLinks.find(link => link.path === pathName)?.name}</h1>
-        <div className="bar-big">
-          <div className="bar-small"></div>
+      <div className="bg-[var(--color-primary)] min-h-[var(--header-height)] header-backgroud">
+        <div className="title-centre ">
+          <h1 className="mb-0">
+            {
+              menuLinks.find(
+                link =>
+                  pathName === link.path ||
+                  (link.path !== "/" && pathName.includes(link.path))
+              )?.name
+            }
+          </h1>
+          <div className="bar-big">
+            <div className="bar-small"></div>
+          </div>
         </div>
       </div>
-      {/* <Link
-      to="/"
-      style={{
-        fontSize: `var(--font-sm)`,
-        textDecoration: `none`,
-      }}
-    >
-      {siteTitle}
-    </Link> */}
     </header>
   )
 }

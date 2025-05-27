@@ -5,6 +5,7 @@ import Layout from "src/components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import CustomLink from "src/components/Link/link"
 import { motion } from "framer-motion"
+import Seo from "src/components/seo"
 
 const BlogPage = ({ data }) => {
   if (!data || !data.allSanityPost) {
@@ -83,4 +84,5 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="Blog" />
 export default BlogPage

@@ -13,7 +13,7 @@
   --foreground: #8c52ff;
   --hover-color-text: #fff;
   --secondary: #ac1f24;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+  --font-sans: -apple-system, BlinkMacSystemFont, "Nunito", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
@@ -30,11 +30,11 @@
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 64px;
-  --size-content: 54rem;
+  --size-content: 56.25rem;
   --size-gutter: var(--space-5);
   --size-gap: var(--space-6);
-  --header-height: 490px;
-  --header-width: 900px;
+  --header-height: 250px;
+  --header-width: 56.25rem;
 }
 
 html {

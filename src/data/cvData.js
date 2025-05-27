@@ -1,8 +1,41 @@
+import jsIcon from "./../images/icons/javascriptIcon.svg"
+import tsIcon from "./../images/icons/typescript-svgrepo-com.svg"
+import javaIcon from "./../images/icons/java-svgrepo-com.svg"
+import phpIcon from './../images/icons/php-svgrepo-com.svg';
+import sqlIcon from "./../images/icons/sql-database-generic-svgrepo-com.svg"
+import css3Icon from "./../images/icons/css3-logo-svgrepo-com.svg"
+import tailwindIcon from "./../images/icons/tailwind-css-svgrepo-com.svg"
+import reactIcon from "./../images/icons/react-svgrepo-com.svg"
+import angularIcon from "./../images/icons/angular-icon-svgrepo-com.svg"
+import reduxIcon from "./../images/icons/redux-logo-svgrepo-com.svg"
+import muiIcon from "./../images/icons/material-ui-svgrepo-com.svg"
+import webpackIcon from "./../images/icons/webpack-svgrepo-com.svg"
+import springIcon from "./../images/icons/spring-svgrepo-com.svg"
+import restIcon from "./../images/icons/rest-api-svgrepo-com.svg"
+import postgresqlIcon from "./../images/icons/postgresql-svgrepo-com.svg"
+
+import gitIcon from "./../images/icons/git-svgrepo-com.svg"
+import jenkinsIcon from "./../images/icons/jenkins-svgrepo-com.svg"
+import postmanIcon from "./../images/icons/postman-icon-svgrepo-com.svg"
+import trelloIcon from "./../images/icons/jira-svgrepo-com.svg"
+import agileIcon from "./../images/icons/scrum-svgrepo-com.svg"
+import uiuxIcon from "./../images/icons/equalizer-interface-ui-ux-svgrepo-com.svg"
+
+import linuxIcon from "./../images/icons/linux-svgrepo-com.svg"
+import windowsIcon from "./../images/icons/windows-svgrepo-com.svg"
+import networksIcon from "./../images/icons/cld-cloud-network-folder-svgrepo-com.svg"
+import webIcon from "./../images/icons/web-svgrepo-com.svg"
+import wpIcon from "./../images/icons/wordpress-svgrepo-com.svg"
+import adobeIcon from "./../images/icons/adobe-creative-cloud-svgrepo-com.svg"
+import capcutIcon from "./../images/icons/capcut-svgrepo-com.svg"
+import teamworkIcon from "./../images/icons/teamwork-team-people-business-meeting-group-office-svgrepo-com.svg"
+import presentationIcon from "./../images/icons/presentation-svgrepo-com.svg"
+
 export const cvData = {
   name: "Huỳnh Phú Quí",
   title: "Software Developer",
-  summary:
-    "With 5 years of experience, I have played a key role as a front-end developer and tester in over 7 web application projects. Driven by a continual learning mindset, I consistently seek ways to enhance productivity and share knowledge with my team. I am eager to contribute to the company's growth through my expertise and dedication.",
+  summary: `I have been a software developer for 5 years, specializing in in front-end development with a strong focus on building responsive, user-friendly web applications. 
+With a solid understanding of modern JavaScript frameworks and a keen eye for design. I strive to create seamless user experiences that combine performance with aesthetics.`,
   education: [
     {
       period: "8/2015 - 11/2019",
@@ -14,42 +47,48 @@ export const cvData = {
   ],
   languages: ["English - TOEIC 785"],
   skills: {
-    programming_languages: ["JavaScript", "TypeScript", "Java", "PHP", "SQL"],
+    programming_languages: [
+      { name: "JavaScript", icon: jsIcon },
+      { name: "TypeScript", icon: tsIcon },
+      { name: "Java", icon: javaIcon },
+      { name: "PHP", icon: phpIcon },
+      { name: "SQL", icon: sqlIcon },
+    ],
     frontend_development: [
-      "HTML/CSS/jQuery",
-      "SASS/SCSS/TailwindCSS",
-      "ReactJS",
-      "Angular",
-      "Redux/Redux-Saga/Mobx/RxJS",
-      "MUI/AntDesign/Bootstrap",
-      "Webpack/Vite",
+      { name: "HTML/CSS/jQuery", icon: css3Icon },
+      { name: "SASS/SCSS/TailwindCSS", icon: tailwindIcon },
+      { name: "ReactJS", icon: reactIcon },
+      { name: "Angular", icon: angularIcon },
+      { name: "Redux/Redux-Saga/Mobx/RxJS", icon: reduxIcon },
+      { name: "MUI/AntDesign/Bootstrap", icon: muiIcon },
+      { name: "Webpack/Vite", icon: webpackIcon },
     ],
     backend_development: [
-      "Java Spring MVC",
-      "Java Spring Boot",
-      "RESTful APIs",
-      "MySQL/PostgreSQL",
+      { name: "Java Spring MVC", icon: springIcon },
+      { name: "Java Spring Boot", icon: springIcon },
+      { name: "RESTful APIs", icon: restIcon },
+      { name: "MySQL/PostgreSQL", icon: postgresqlIcon },
     ],
     tools_methodologies: [
-      "Git",
-      "Jenkins",
-      "Postman",
-      "Trello/Jira",
-      "Agile/Scrum",
-      "UI/UX Design Principles",
+      { name: "Git", icon: gitIcon },
+      { name: "Jenkins", icon: jenkinsIcon },
+      { name: "Postman", icon: postmanIcon },
+      { name: "Trello/Jira", icon: trelloIcon },
+      { name: "Agile/Scrum", icon: agileIcon },
+      { name: "UI/UX Design Principles", icon: uiuxIcon },
     ],
     systems_networking: [
-      "Linux",
-      "Windows Server",
-      "SDN Networks",
-      "Web Services (Apache, Nginx, IIS)",
+      { name: "Linux", icon: linuxIcon },
+      { name: "Windows Server", icon: windowsIcon },
+      { name: "SDN Networks", icon: networksIcon },
+      { name: "Web Services (Apache, Nginx, IIS)", icon: webIcon },
     ],
     others: [
-      "WordPress",
-      "Photoshop/Illustrator",
-      "Vegas/Capcut",
-      "Teamwork",
-      "Presentation",
+      { name: "WordPress", icon: wpIcon },
+      { name: "Photoshop/Illustrator", icon: adobeIcon },
+      { name: "Vegas/Capcut", icon: capcutIcon },
+      { name: "Teamwork", icon: teamworkIcon },
+      { name: "Presentation", icon: presentationIcon },
     ],
   },
   experience: [

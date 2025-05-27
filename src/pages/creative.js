@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import CustomLink from "src/components/Link/link"
+import Seo from "src/components/seo"
 
 const CreativePage = ({ data }) => {
   if (!data || !data.allSanityPost) {
@@ -76,4 +77,5 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="Contact" />
 export default CreativePage

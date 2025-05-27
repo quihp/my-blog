@@ -1,6 +1,4 @@
 .cv-container {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
@@ -17,8 +15,8 @@ li {
 
 section > div {
   margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
+  /* padding: 10px;
+  border: 1px solid #ddd; */
   border-radius: 5px;
 }
 .cv-section {
@@ -33,7 +31,8 @@ section > div {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1rem;
-  text-transform: uppercase;
+  font-weight: bold;
+  /* text-transform: uppercase; */
   letter-spacing: 1px;
   border-bottom: 2px solid var(--color-primary);
   display: inline-block;
@@ -110,7 +109,7 @@ section > div {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 12px;
-  border: 2px solid var(--color-secondary); /* Light orange border */
+  /* border: 2px solid var(--color-secondary); */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   /* transition: all 0.3s ease; */
 }
@@ -163,7 +162,7 @@ section > div {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 

@@ -161,11 +161,27 @@ const IndexPage = () => (
                     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(" ")}
                 </h4>
-                <ul>
+                {/* <ul>
                   {skills.map((skill, i) => (
                     <li key={i}>{skill}</li>
                   ))}
-                </ul>
+                    
+                </ul> */}
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center gap-1 px-3 py-1 bg-[--color-secondary] text-white rounded-full text-sm"
+                    >
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-4 h-4 mr-1 mb-0"
+                      />
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>

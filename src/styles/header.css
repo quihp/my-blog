@@ -11,14 +11,14 @@
   position: relative;
 }
 .navigation {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(255, 255, 255);
   align-items: center;
   padding: 20px 3%;
-  position: absolute;
+  /* position: absolute;
   top: 0%;
   bottom: auto;
   left: 0%;
-  right: 0%;
+  right: 0%; */
 }
 .navigation-container-full {
   max-width: var(--header-width);
