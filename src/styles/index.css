@@ -195,3 +195,110 @@ section > div {
   color: #333;
   margin: 5px 0;
 }
+
+.timeline-container {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 #f0f0f0; /* For Firefox */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.timeline-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #ccc;
+  z-index: 1;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+  min-width: fit-content; /* Ensures content doesn't shrink */
+}
+
+.timeline-card {
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 16px;
+  height: 16px;
+  background: #007bff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.experience-period {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.experience-company {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.experience-role {
+  font-size: 1rem;
+  color: #555;
+}
+
+.experience-details {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  background: #e0f7fa;
+  color: #00695c;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

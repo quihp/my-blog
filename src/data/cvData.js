@@ -96,13 +96,17 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
       period: "11/2023 - present",
       company: "Viettel Business Solutions Corporation",
       role: "Software Developer - Full-Time",
+      logo: "../../images/logo/logo.png",
+      techStack: ["ReactJS", "Redux-Saga", "PostgreSQL", "Java Spring Boot"],
       details:
-        "Front-end programming for web applications, including Internal Management Tools and TesselAI. Tech: ReactJS, Redux-Saga, PostgreSQL, Java Spring Boot",
+        "Front-end programming for web applications, including Internal Management Tools and TesselAI",
     },
     {
       period: "9/2023 - 11/2023",
-      company: "INFORMATION TECHNOLOGY PARK - VNUHCM (ITP - VNUHCM)",
+      company: "Information Technology Park - VNUHCM (ITP - VNUHCM)",
       role: "Web Developer - Freelancer",
+      logo: "../../images/logo/logo.png",
+      techStack: ["WordPress"],
       details:
         "Developed and deployed a custom Content Management System (CMS) website using WordPress.",
     },
@@ -110,22 +114,26 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
       period: "7/2019 - 8/2023",
       company: "Ho Chi Minh City University Of Foreign Languages (HUFLIT)",
       role: "Web Developer - Full-Time",
+      logo: "../../images/logo/logo.png",
+      techStack: ["ReactJS", "Java Spring MVC/Boot", "MySQL"],
       details:
-        "Full-stack developer, IT Business Analyst, Manual Testing for Internal Projects. Tech: ReactJS, Java Spring MVC/Boot, MySQL",
+        "Full-stack developer, IT Business Analyst, Manual Testing for Internal Projects.",
     },
     {
       period: "9/2018 - 11/2018",
       company: "Citynow Technology Solutions - CTS",
       role: "Internship Blockchain",
+      logo: "../../images/logo/logo.png",
+      techStack: ["Solidity", "Java", "HTML/CSS"],
       details:
-        "Learned to build Blockchain projects and DApps for cryptocurrency transactions through MetaMask Wallet. Tech: Solidity, Java, HTML/CSS",
+        "Learned to build Blockchain projects and DApps for cryptocurrency transactions through MetaMask Wallet.",
     },
   ],
   projects: [
     {
       name: "Internal Management Tools",
       role: "Front-end",
-      tech: "React-Redux, Java Spring Boot, PostgreSQL",
+      tech: ["React-Redux", "Java Spring Boot", "PostgreSQL"],
       details: [
         "Developed and implemented user interface components using ReactJS and Redux Saga.",
         "Developed dynamic forms with real-time validation.",
@@ -136,7 +144,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Tessel AI",
       role: "Front-end",
-      tech: "React-Redux",
+      tech: ["React-Redux"],
       details: [
         "Developed and implemented user interface components using ReactJS and related technologies.",
         "Participated in code reviews for team members.",
@@ -146,7 +154,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Manage Attendance Affairs - MAA",
       role: "Full-stack",
-      tech: "React-Mobx, Java Spring Boot, MySQL",
+      tech: ["React-Mobx", "Java Spring Boot", "MySQL"],
       details: [
         "Built responsive and intuitive user interfaces for mobile web to streamline attendance tracking.",
         "Designed solutions for attendance tracking, leave requests, and make-up teaching features.",
@@ -155,7 +163,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Administrative Communication Affairs - ACA",
       role: "Full-stack",
-      tech: "React-Mobx, Java Spring Boot, MySQL",
+      tech: ["React-Mobx", "Java Spring Boot", "MySQL"],
       details: [
         "Implemented digital signature functionality with multi-level approval workflow.",
         "Built responsive user interfaces for agency calendar management.",
@@ -164,7 +172,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Post-graduate Affairs - PGA",
       role: "Full-stack",
-      tech: "HTML/CSS/JQuery, Java Spring MVC, MySQL",
+      tech: ["HTML/CSS/JQuery", "Java Spring MVC", "MySQL"],
       details: [
         "Created responsive interfaces with Bootstrap and JSP.",
         "Developed modules for curriculum management, student grade tracking, tuition fee calculation, and course registration.",
@@ -173,7 +181,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Carerhub",
       role: "Full-stack",
-      tech: "Wordpress",
+      tech: ["Wordpress"],
       details: [
         "Developed a WordPress-based job portal connecting recruiters and candidates.",
         "Configured and installed Apache web server for hosting.",

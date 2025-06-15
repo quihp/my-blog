@@ -12,26 +12,9 @@ import AnimatedSection from "../components/Motion/AnimatedSection"
 import { motion } from "framer-motion"
 import { cvData } from "../data/cvData"
 import "../styles/index.css"
-// Stagger animation for Experience and Projects
-const projectsContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3, // Increased stagger for dramatic effect
-    },
-  },
-}
+import ExperienceSection from "./home/experienceSection"
+import ProjectSection from "./home/projectSection"
 
-const projectItemVariants = {
-  hidden: { opacity: 0, rotateX: 90, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    rotateX: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15 },
-  },
-}
 // Stagger animation for Skills
 const skillsContainerVariants = {
   hidden: { opacity: 0 },
@@ -187,7 +170,8 @@ const IndexPage = () => (
           </div>
         </motion.section>
         {/* Experience */}
-        <motion.section
+        <ExperienceSection cvData={cvData}/>
+        {/* <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -207,39 +191,10 @@ const IndexPage = () => (
               <p className="experience-details">{exp.details}</p>
             </motion.div>
           ))}
-        </motion.section>
+        </motion.section> */}
 
         {/* Projects */}
-        <motion.section
-          className="projects-section"
-          variants={projectsContainerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <h3 className="section-title">Projects</h3>
-          {cvData.projects.map((proj, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              variants={projectItemVariants}
-              whileHover={{
-                scale: 1.05,
-                rotate: 2,
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <h4>{proj.name}</h4>
-              <p className="project-role">Role: {proj.role}</p>
-              <p className="project-tech">Tech: {proj.tech}</p>
-              <ul>
-                {proj.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.section>
+        <ProjectSection cvData={cvData}/>
       </div>
       <StaticImage
         src="../images/logo/logo.png"
