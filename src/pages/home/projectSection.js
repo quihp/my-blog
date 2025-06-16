@@ -33,7 +33,7 @@ const ProjectSection = ({ cvData }) => {
       animate="visible"
     >
       <h3 className="section-title">Projects</h3>
-      {cvData.projects.map((proj, index) => (
+      {cvData?.projects?.map((proj, index) => (
         <motion.div
           key={index}
           className="project-card"
@@ -48,7 +48,7 @@ const ProjectSection = ({ cvData }) => {
           <h4>{proj.name}</h4>
           <p className="project-role">Role: {proj.role}</p>
           <div className="flex justify-center flex-wrap mt-2 gap-1">
-            {proj.tech.map((tech, i) => (
+            {proj?.tech?.map((tech, i) => (
               <span
                 key={i}
                 className="bg-[--color-secondary] text-sm text-white px-2 py-0.5 rounded-full"
@@ -58,7 +58,7 @@ const ProjectSection = ({ cvData }) => {
             ))}
           </div>
           <ul>
-            {proj.details.map((detail, i) => (
+            {proj?.details?.map((detail, i) => (
               <li key={i}>{detail}</li>
             ))}
           </ul>

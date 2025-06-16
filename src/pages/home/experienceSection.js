@@ -97,7 +97,7 @@ const ExperienceSection = ({ cvData }) => {
         ref={containerRef}
         className="flex overflow-x-auto will-change-transform space-x-6 py-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
       >
-        {cvData.experience.map((exp, index) => (
+        {cvData?.experience?.map((exp, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.05, backgroundColor: "#f0f8ff" }}
@@ -109,7 +109,7 @@ const ExperienceSection = ({ cvData }) => {
             <h4 className="text-lg font-semibold mt-1">{exp.company}</h4>
             <p className="text-gray-700 text-md mt-2">{exp.details}</p>
             <div className="flex flex-wrap mt-2 gap-1">
-              {exp.techStack.map((tech, i) => (
+              {exp?.techStack?.map((tech, i) => (
                 <span
                   key={i}
                   className="bg-[--color-secondary] text-sm text-white px-2 py-0.5 rounded-full"

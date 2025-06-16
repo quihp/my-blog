@@ -170,7 +170,7 @@ const IndexPage = () => (
           </div>
         </motion.section>
         {/* Experience */}
-        <ExperienceSection cvData={cvData}/>
+        {cvData && <ExperienceSection cvData={cvData}/>}
         {/* <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -194,7 +194,7 @@ const IndexPage = () => (
         </motion.section> */}
 
         {/* Projects */}
-        <ProjectSection cvData={cvData}/>
+        {cvData && <ProjectSection cvData={cvData}/>}
       </div>
       <StaticImage
         src="../images/logo/logo.png"
