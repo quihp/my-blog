@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
+import { StaticImage } from "gatsby-plugin-image"
 import "../../styles/index.css"
 
 const ProjectSection = ({ cvData }) => {
@@ -25,46 +26,114 @@ const ProjectSection = ({ cvData }) => {
       transition: { type: "spring", stiffness: 100, damping: 15 },
     },
   }
+  const [selectedProject, setSelectedProject] = useState(null)
   return (
-    <motion.section
-      className="projects-section"
-      variants={projectsContainerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <h3 className="section-title">Projects</h3>
-      {cvData?.projects?.map((proj, index) => (
-        <motion.div
-          key={index}
-          className="project-card"
-          variants={projectItemVariants}
-          whileHover={{
-            scale: 1.05,
-            rotate: 2,
-            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <h4>{proj.name}</h4>
-          <p className="project-role">Role: {proj.role}</p>
-          <div className="flex justify-center flex-wrap mt-2 gap-1">
-            {proj?.tech?.map((tech, i) => (
-              <span
-                key={i}
-                className="bg-[--color-secondary] text-sm text-white px-2 py-0.5 rounded-full"
+    <section className="py-12">
+      <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
+
+      <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-2">
+        {cvData?.projects?.map(project => (
+          <div
+            key={project.id}
+            className="project-card shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+          >
+            <StaticImage
+              alt={project.name}
+              className="h-48 w-full object-cover"
+              src="../../images/example.png"
+            />
+            <div className="p-5">
+              <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+              <p className="text-gray-600 text-sm mb-3">{project.role}</p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project?.tech?.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-[--color-secondary] text-sm text-white px-2 py-0.5 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setSelectedProject(project)}
+                className="text-sm text-white bg-[--color-primary] hover:bg-[--color-primary-bold] transition-colors px-4 py-2 rounded"
               >
-                {tech}
-              </span>
-            ))}
+                Learn more
+              </button>
+            </div>
           </div>
-          <ul>
-            {proj?.details?.map((detail, i) => (
-              <li key={i}>{detail}</li>
-            ))}
-          </ul>
-        </motion.div>
-      ))}
-    </motion.section>
+        ))}
+        {/* Modal */}
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4">
+            <div className="bg-white rounded-xl shadow-lg max-w-lg w-full p-6 relative">
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-2xl font-bold"
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <h3 className="text-2xl font-bold mb-4">
+                {selectedProject.name}
+              </h3>
+              <motion.ul
+                className="text-gray-700 text-sm  list-inside space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {selectedProject?.details?.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
+              </motion.ul>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+    // <motion.section
+    //   className="projects-section"
+    //   variants={projectsContainerVariants}
+    //   initial="hidden"
+    //   animate="visible"
+    // >
+    //   <h3 className="section-title">Projects</h3>
+    //   {cvData?.projects?.map((proj, index) => (
+    //     <motion.div
+    //       key={index}
+    //       className="project-card"
+    //       variants={projectItemVariants}
+    //       whileHover={{
+    //         scale: 1.05,
+    //         rotate: 2,
+    //         boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+    //       }}
+    //       transition={{ duration: 0.3 }}
+    //     >
+    //       <h4>{proj.name}</h4>
+    //       <p className="project-role">Role: {proj.role}</p>
+    //       <div className="flex justify-center flex-wrap mt-2 gap-1">
+    //         {proj?.tech?.map((tech, i) => (
+    //           <span
+    //             key={i}
+    //             className="bg-[--color-secondary] text-sm text-white px-2 py-0.5 rounded-full"
+    //           >
+    //             {tech}
+    //           </span>
+    //         ))}
+    //       </div>
+    //       <ul>
+    //         {proj?.details?.map((detail, i) => (
+    //           <li key={i}>{detail}</li>
+    //         ))}
+    //       </ul>
+    //     </motion.div>
+    //   ))}
+    // </motion.section>
     // <motion.section
     //   className="projects-section py-10 px-4 "
     //   variants={projectsContainerVariants}

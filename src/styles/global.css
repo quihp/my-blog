@@ -6,6 +6,7 @@
   --border-radius: 4px;
   --color-text: #333;
   --color-primary: #8c52ff;
+  --color-primary-bold: lab(41.3% 74.8 -92.72);
   --color-secondary: #ff66c4;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;

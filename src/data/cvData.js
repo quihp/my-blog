@@ -133,6 +133,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Internal Management Tools",
       role: "Front-end",
+      image: "../../images/example.png",
       tech: ["React-Redux", "Java Spring Boot", "PostgreSQL"],
       details: [
         "Developed and implemented user interface components using ReactJS and Redux Saga.",
@@ -144,6 +145,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Tessel AI",
       role: "Front-end",
+      image: "../../images/example.png",
       tech: ["React-Redux"],
       details: [
         "Developed and implemented user interface components using ReactJS and related technologies.",
@@ -154,6 +156,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Manage Attendance Affairs - MAA",
       role: "Full-stack",
+      image: "../../images/example.png",
       tech: ["React-Mobx", "Java Spring Boot", "MySQL"],
       details: [
         "Built responsive and intuitive user interfaces for mobile web to streamline attendance tracking.",
@@ -163,6 +166,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Administrative Communication Affairs - ACA",
       role: "Full-stack",
+      image: "../../images/example.png",
       tech: ["React-Mobx", "Java Spring Boot", "MySQL"],
       details: [
         "Implemented digital signature functionality with multi-level approval workflow.",
@@ -172,6 +176,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Post-graduate Affairs - PGA",
       role: "Full-stack",
+      image: "../../images/example.png",
       tech: ["HTML/CSS/JQuery", "Java Spring MVC", "MySQL"],
       details: [
         "Created responsive interfaces with Bootstrap and JSP.",
@@ -181,6 +186,7 @@ With a solid understanding of modern JavaScript frameworks and a keen eye for de
     {
       name: "Carerhub",
       role: "Full-stack",
+      image: "../../images/example.png",
       tech: ["Wordpress"],
       details: [
         "Developed a WordPress-based job portal connecting recruiters and candidates.",
