@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState, useCallback } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
@@ -46,6 +46,17 @@ const ExperienceSection = ({ cvData }) => {
       window.removeEventListener("resize", checkScroll)
     }
   }, [])
+
+  const handleWheel = useCallback((e) => {
+    if (!containerRef.current) return;
+    
+    // Only intercept vertical scroll events
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      e.stopPropagation();
+      containerRef.current.scrollLeft += e.deltaY * 1.5; // Adjust sensitivity here
+    }
+  }, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -95,7 +106,8 @@ const ExperienceSection = ({ cvData }) => {
 
       <div
         ref={containerRef}
-        className="flex overflow-x-auto will-change-transform space-x-6 py-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
+        onWheel={handleWheel}
+        className="flex overflow-x-auto overscroll-contain scrollbar-hide will-change-transform space-x-6 py-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
       >
         {cvData?.experience?.map((exp, index) => (
           <motion.div

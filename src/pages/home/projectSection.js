@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
-import { StaticImage } from "gatsby-plugin-image"
 import "../../styles/index.css"
 
 const ProjectSection = ({ cvData }) => {
@@ -35,18 +34,28 @@ const ProjectSection = ({ cvData }) => {
         {cvData?.projects?.map(project => (
           <div
             key={project.id}
-            className="project-card shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+            className="project-card shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col flex-grow"
           >
-            <StaticImage
+            <img
               alt={project.name}
-              className="h-48 w-full object-cover"
-              src="../../images/example.png"
+              className="h-48 w-full object-contain"
+              src={project.image}
             />
-            <div className="p-5">
-              <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-              <p className="text-gray-600 text-sm mb-3">{project.role}</p>
+            <div className="flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold mb-1">{project.name}</h3>
+              <p className="text-gray-600 text-sm mb-2">{project.role}</p>
+              <motion.ul
+                className={`text-gray-700 mb-2 text-sm text-left list-image-[url('src/images/icons/check.svg')] list-inside space-y-2`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {project?.details?.slice(0, 2)?.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
+              </motion.ul>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="mt-auto flex flex-wrap justify-center gap-2 mb-4">
                 {project?.tech?.map((tech, index) => (
                   <span
                     key={index}
@@ -56,7 +65,8 @@ const ProjectSection = ({ cvData }) => {
                   </span>
                 ))}
               </div>
-
+            </div>
+            <div className="mt-auto flex justify-center">
               <button
                 onClick={() => setSelectedProject(project)}
                 className="text-sm text-white bg-[--color-primary] hover:bg-[--color-primary-bold] transition-colors px-4 py-2 rounded"
@@ -81,7 +91,7 @@ const ProjectSection = ({ cvData }) => {
                 {selectedProject.name}
               </h3>
               <motion.ul
-                className="text-gray-700 text-sm  list-inside space-y-2"
+                className="text-gray-700 text-sm text-left list-image-[url('src/images/icons/check.svg')] list-inside space-y-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
